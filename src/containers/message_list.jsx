@@ -3,7 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setMessages } from '../actions';
 
-import Message from './message'
+import Message from '../components/message'
+import MessageForm from './message_form'
 
 
 class MessageList extends Component {
@@ -15,7 +16,10 @@ class MessageList extends Component {
     return (
       <div>
       <h2 className='border-bottom p-3'>Channel #{this.props.selectedChannel}</h2>
+      <div className="messages">
        { this.props.messages.map(message => <Message message={message} key={message.created_at} />)}
+      </div>
+      <MessageForm />
       </div>
     );
   }
