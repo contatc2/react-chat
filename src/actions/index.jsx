@@ -6,8 +6,7 @@ export const MESSAGE_POSTED = 'MESSAGE_POSTED';
 export function setMessages(channel) {
   const url = `https://wagon-chat.herokuapp.com/${channel}/messages`;
   const promise = fetch(url)
-    .then(response => response.json())
-    .then((data) => {return data.messages});
+    .then(response => response.json());
   return {
     type: SET_MESSAGES,
     payload: promise
