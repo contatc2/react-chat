@@ -12,25 +12,32 @@ import reduxPromise from 'redux-promise';
 // internal modules
 import * as serviceWorker from './serviceWorker';
 import App from './components/app';
-import '../assets/stylesheets/application.scss';
+import './stylesheets/application.scss';
 
-import flatsReducer from './reducers/flats_reducer';
-import selectFlatReducer from './reducers/select_flat_reducer';
+import MessagesReducer from './reducers/messages_reducer';
+
 
 // State and reducers
 const reducers = combineReducers({
-  flats: flatsReducer,
-  selectedFlat: selectFlatReducer
+  messages: MessagesReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middlewares = composeEnhancers(applyMiddleware(logger, reduxPromise));
 
+const initialState = {
+  messages: [],
+  channels: ['general', 'london', 'react'],
+  currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`,
+  selectedChannel: 'general'
+
+};
 
 ReactDOM.render(
-  <Provider store={createStore(reducers, {}, middlewares)}>
+  <Provider store={createStore(reducers, {initialState}, middlewares)}>
     <App />
-  </Provider>, document.getElementById('root')
+  </Provider>,
+  document.getElementById('root')
 );
 
 
