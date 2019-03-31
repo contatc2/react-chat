@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { setMessages } from '../actions';
+
 import Message from './message'
 
 
 class MessageList extends Component {
+  componentWillMount() {
+    this.props.setMessages(this.props.selectedChannel);
+  }
 
   render() {
     return (
@@ -15,6 +21,13 @@ class MessageList extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { setMessages },
+    dispatch
+  );
+}
+
 function mapStateToProps(state) {
   return {
     messages: state.messages,
@@ -23,4 +36,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(MessageList);
+export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
