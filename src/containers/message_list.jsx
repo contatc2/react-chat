@@ -14,11 +14,11 @@ class MessageList extends Component {
   }
 
   componentDidMount() {
-    setInterval(this.fetchMessages(), 10000);
+    this.refresher = setInterval(this.fetchMessages, 10000);
   }
 
   componentWillUnmount() {
-    this.refresher = clearInterval(setInterval(this.fetchMessages(), 1000));
+    clearInterval(this.refresher);
   }
 
   fetchMessages = () => {
