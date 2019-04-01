@@ -1,14 +1,14 @@
-export const SET_MESSAGES = 'SET_MESSAGES';
+export const FETCH_MESSAGES = 'FETCH_MESSAGES';
 export const SELECT_CHANNEL = 'SELECT_CHANNEL';
 export const MESSAGE_POSTED = 'MESSAGE_POSTED';
 
 
-export function setMessages(channel) {
+export function fetchMessages(channel) {
   const url = `https://wagon-chat.herokuapp.com/${channel}/messages`;
   const promise = fetch(url)
     .then(response => response.json());
   return {
-    type: SET_MESSAGES,
+    type: FETCH_MESSAGES,
     payload: promise
   }
 }

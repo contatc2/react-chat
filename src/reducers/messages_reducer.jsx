@@ -1,8 +1,8 @@
-import { SET_MESSAGES, MESSAGE_POSTED, SELECT_CHANNEL } from '../actions';
+import { FETCH_MESSAGES, MESSAGE_POSTED, SELECT_CHANNEL } from '../actions';
 
 export default function(state = null, action) {
   switch (action.type) {
-    case SET_MESSAGES: {
+    case FETCH_MESSAGES: {
       return action.payload.messages;
     }
     case MESSAGE_POSTED: {
