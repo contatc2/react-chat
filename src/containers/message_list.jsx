@@ -8,13 +8,19 @@ import MessageForm from './message_form'
 
 
 class MessageList extends Component {
-
-  componentWillMount() {
+  constructor(props) {
+    super(props)
     this.fetchMessages();
+    this.list = React.createRef();
   }
 
   componentDidMount() {
     this.refresher = setInterval(this.fetchMessages, 10000);
+    this.list = {};
+  }
+
+  componentDidUpdate() {
+      this.list.current.scrollTop = this.list.current.scrollHeight;
   }
 
   componentWillUnmount() {
@@ -22,14 +28,17 @@ class MessageList extends Component {
   }
 
   fetchMessages = () => {
-    this.props.fetchMessages(this.refresher);
+    this.props.fetchMessages(this.props.selectedChannel);
   }
 
   render() {
     return (
       <div>
       <h2 className='border-bottom p-3'>Channel #{this.props.selectedChannel}</h2>
-      <div className="messages">
+      <div
+        className="messages"
+        ref = {this.list}
+      >
        { this.props.messages.map(message => <Message message={message} key={message.created_at} />)}
       </div>
       <MessageForm />
