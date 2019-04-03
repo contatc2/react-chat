@@ -15,16 +15,16 @@ import App from './components/app';
 import './stylesheets/application.scss';
 
 import MessagesReducer from './reducers/messages_reducer';
-import ChannelsReducer from './reducers/channels_reducer';
-import UserReducer from './reducers/user_reducer';
 import SelectChannel from './reducers/select_channel_reducer';
+
+const identityReducer = (state = null) => state;
 
 
 // State and reducers
 const reducers = combineReducers({
   messages: MessagesReducer,
-  channels: ChannelsReducer,
-  currentUser: UserReducer,
+  channels: identityReducer,
+  currentUser: identityReducer,
   selectedChannel: SelectChannel
 });
 
