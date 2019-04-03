@@ -1,7 +1,7 @@
-import React, { Component} from 'react';
+import React from 'react';
 
 
-class Message extends Component {
+class Message extends React.Component {
   render() {
     const time = new Date(this.props.message.created_at).toLocaleTimeString();
     return(<div className='message'>
