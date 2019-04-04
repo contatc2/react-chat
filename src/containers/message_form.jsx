@@ -8,6 +8,11 @@ class MessageForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: '' };
+    this.messageBox = React.createRef();
+  }
+
+  componentDidMount() {
+    this.messageBox.focus();
   }
 
   handleChange = (event) => {
@@ -22,12 +27,13 @@ class MessageForm extends React.Component {
 
   render() {
     return (
-        <form onSubmit={this.handleSubmit} >
+        <form onSubmit={this.handleSubmit} className="channel-editor" >
           <div className="search-form-control form-group">
             <input
-              // ref={(input) => { this.messageBox = input; }}
+              ref={this.messageBox}
               className="form-control"
               type="text"
+              autoComplete="off"
               value={this.state.value}
               onChange={this.handleChange}
             />

@@ -1,7 +1,19 @@
 .App {
-  text-align: center;
   display: flex;
-  justify-content: flex-start;
+  height: 100vh;
+}
+
+.messaging-logo {
+  height: 40px;
+/*  object-fit: contain;*/
+}
+
+.logo-container {
+  padding: 10px;
+  width: 60px;
+  height: 100%;
+  background: #dbdbdb;
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -19,17 +31,4 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

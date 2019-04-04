@@ -1,24 +1,29 @@
-.channels {
-  flex: 0 0 15%;
-  padding: 16px;
-  li {
+.channels-container {
+  padding: 20px;
+  width: 220px;
+  height: 100%;
+  background: #f4f4f4;
+  box-sizing: border-box;
+  span {
+    font-weight: 900;
+  }
+  ul {
     list-style: none;
-  }
-  h2 {
-    font-size: 16px;
+    -webkit-margin-before: 2em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+    li {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #7c7c7c;
+      cursor: pointer;
+      &.selected {
+        font-weight: 600;
+        color: black
+      }
+    }
   }
 }
 
-.channel {
-  padding-bottom: 8px;
-}
-.selected {
-  font-weight: bold;
-}
-
-.logo {
-  flex: 0 0 5%;
-  height: 50px;
-  object-fit: contain;
-  padding: 8px;
-}

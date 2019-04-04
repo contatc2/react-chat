@@ -7,7 +7,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" alt="" className="logo"/>
+        <div className="logo-container">
+          <img src="logo.svg" alt="logo" className="messaging-logo"/>
+        </div>
         <ChannelList />
         <MessageList />
       </div>

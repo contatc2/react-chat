@@ -16,7 +16,6 @@ class MessageList extends React.Component {
 
   componentDidMount() {
     this.refresher = setInterval(this.fetchMessages, 10000);
-    // this.list = {};
   }
 
   componentDidUpdate() {
@@ -33,10 +32,12 @@ class MessageList extends React.Component {
 
   render() {
     return (
-      <div className='message-box'>
-        <h2 className='border-bottom p-3'>Channel #{this.props.selectedChannel}</h2>
+      <div className='channel-container'>
+        <div className="channel-title">
+          <span>Channel #{this.props.selectedChannel}</span>
+        </div>
         <div
-          className="messages"
+          className="channel-content"
           ref = {this.list}
         >
          { this.props.messages.map(message => <Message message={message} key={message.created_at} />)}
